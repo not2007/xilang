@@ -8,9 +8,9 @@
 				margin: 0;
 				padding: 0;
 				text-decoration: none;
+		
 			}
 			body {
-				overflow: hidden;
 				background-color: #000000;
 				width: 100vw;
 				min-height: 100vh;
@@ -28,7 +28,6 @@
 					margin:auto;
 					position: relative;
 					  top: 60px; left: 0; bottom: 0; right: 0;
-                    z-index:-999;
 			}
 			.lll{
 				width:1200px;
@@ -38,12 +37,11 @@
 			}
 			.logo{
 				position:absolute;
-				left:20px;
 				top:20px;
 			}
 			.wenben{
 				width:681px;
-				height:360px;
+				height:460px;
 				position:relative;
 				
 			}
@@ -70,10 +68,19 @@
 				position:relative;
 				margin-top:50px;
 			}
-			.iphone{
+			.zi5{
+				font-family:SourceHanSansCN-Medium;
+				font-size:24px;
+				color:#ffffff;
+				text-align:left;
 				position:relative;
-				float:right;
-				top:-359px;
+				margin-top:50px;
+			}
+			.iphone{
+			    position: absolute;
+			    float: right;
+			    top: 0px;
+			    left: 400px;
 			}
 			.btn{
 				position:relative;
@@ -81,25 +88,27 @@
 			}
 			.zi4{
 				font-family:SourceHanSansCN-Regular;
-				font-size:12x;
+				font-size:20px;
 				color:#ffffff;
 				text-align:left;
 				position:relative;
 				text-align:center;
 				top:850px;
 			}
+
 			@media only screen and (max-width: 1024px) {
 				.daohanglan{
 					width: 100vw;
 					height:100px;
 					background-color:#ffffff;
 					position:relative;
+					z-index:999;
 				}
 				.beijing{
 					    height: 733px;
 					    background: url(background_img.png) no-repeat center center;
-						position: absolute;
-						  top: -1030px; left: 0; bottom: 0; right: 0;
+						position: relative;
+						  top: 0px; left: 0; bottom: 0; right: 0;
 						width:100%;
 				}
 				.zi1{
@@ -107,24 +116,25 @@
 				}
 				.wenben{
 					position:relative;
-					left:180px;
-					top:170px;
+					left:10%;
+					top:70px;
 					font-weight: 600; 
 				}
 				.iphone{
 				position:relative;
 				float:none;
-				top:200px;
+				top:50px;
+		        left:0px;
+				
 				}
 				.btn{
 					position:relative;
-					margin-top:82px;
-					left:180px;
-					top:-600px;
+					left:10%;
+					top:-700px;
 				}
 				.zi4{
 				
-					top:1300px;
+					top:550px;
 				}
 				.lll{
 					width:0;
@@ -133,31 +143,66 @@
 					position:absolute;
 				}
 				.logo{
-					position:absolute;
-					left:200px;
+					position:relative;
+					left:50px;
 					top:20px;
-				}
+				}}
+				@media only screen and (max-width: 844px) {
+					.zi2{
+						margin-top:30px;
+					}
+					.zi3{
+						margin-top:20px;
+					}
+					
+					}
+				@media only screen and (max-width: 520px) {
+					
+					.iphone{
+				width:400px;
+				height:337.5px;
+					left:6%;
+					position:relative;top:50px;
+					}
+					.btn {
+					    position: relative;
+					    left: 20%;
+						top:50px;
+						margin-bottom:100px;
+						}
+					}
+					.wenben {
+					    width: 80%;
+				
+					}
 				</style>
 	</head>
 	<body>
-		<div class="daohanglan">
+		<div class="daohanglan" >
 			<div class="lll">
 			<img src="logo_img.png" class="logo">
 			</div>
 			</div>
 		<div class="beijing">
+			
 			<div class="wenben">
 				<div class="zi1">重现街机经典 &nbsp;&nbsp;再造王牌归来</div>
 				<div class="zi2">我是猎妖师之决战万圣夜</div>
-				<div class="zi3">万圣夜群魔出动，猎妖师决战异域<br>
-				猎杀妖怪赢高分，收集魂点兑奖励<br>
+				<div class="zi3" style="line-height:45px;">万圣夜群魔出动，猎妖师决战异域<br>
+		猎杀妖怪赢高分，收集魂点兑奖励<br>
 				上手快，乐趣多，众多关卡等你来战<br>
 				打Boss，刷武器，大招连发横扫全场<br>
-				</div>
+				</div>	
+						
 			</div>
 			<img src="iphone_img.png" class="iphone">
-			<img src="download_btn.png" class="btn">
+<img src="./download_btn.png" class="btn" id="download" >
 		</div>
-			<div class="zi4">Copyright © 2020杭州西朗科技版权所有</div>
+<script>
+		document.getElementById('download').addEventListener('click', function() {
+						window.location.href = 'https://a.app.qq.com/o/simple.jsp?pkgname=com.tencent.tmgp.lotohunter';
+					})
+	</script>
 	</body>
+
 </html>
