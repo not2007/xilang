@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>猎妖师规则</title>
+		<meta charset="UTF-8" name="viewport" content="width=device-width,
+initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: rgba(255, 255, 255, 0);
+				overflow: hidden;
+				overflow-x: hidden;
+				overflow-y: hidden;
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				-khtml-user-select: none;
+				user-select: none;
+					
+			}
+			
+			.frame {
+				background-image: url(./img/box_background.png);
+				width: 6.175675rem;
+				height: 3.199924rem;
+				background-size: 100%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				overflow: visible;
+			}
+			
+			.rule_title {
+				width: 100%;
+				text-align: center;
+			}
+			
+			.rule_title_sp {
+				background: linear-gradient(#fff53b, #d67300);
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+				font-size: 0.297297rem;
+				border: none!important;
+				position: relative;
+				left: 50%;
+				transform: translateX(-50%);
+				text-align: center;
+			}
+			
+			.rule_main_frame {
+				color: white;
+				font-size: 0.169189rem;
+				width: 95%;
+				margin-left: 2.5%;
+				text-align: left;
+				margin-top: 0.1rem;
+			}
+			
+			.aurthorion {
+				font-size: 0.175675rem;
+			}
+			
+			.aurhor_code {
+				color: #f2cb14;
+			}
+			
+			.myol {
+				margin: 0px;
+				padding: 0;
+				list-style: none;
+				margin-bottom: 0.054054rem;
+				line-height: 0.25405rem;
+			}
+			
+			.close_btn {
+				width: 1.31081rem;
+				height: 0.5rem;
+				position: relative;
+				left: 50%;
+				transform: translateX(-50%);
+				top: 0.1rem;
+			}
+			
+			.iner_frame {
+				width: 90%;
+				height: 90%;
+				background-color: rgba(255, 255, 255, 0);
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				overflow: scroll;
+				padding: 0 0.2rem 0 0.2rem;
+			}
+			
+			.new_close_btn {
+				width: 0.407837rem;
+				height: 0.407837rem;
+				position:fixed;
+				top: -0.117567rem;
+				right: -0.117567rem;
+				z-index:9999;
+			}
+			.pre_rule_box {
+				margin-bottom: 0.27027rem;
+			}
+			
+			.rule_text_img {
+				font-family:SourceHanSansCN-Bold;
+				text-align:left;
+				font-size:0.2665789474rem;
+				font-weight:900;
+				 background-image: -webkit-linear-gradient( bottom , rgba(220, 164, 23), rgba(255, 255, 255));
+				
+				               /*必需加前缀 -webkit- 才支持这个text值 */
+				
+				                -webkit-background-clip: text;
+				
+				                /*text-fill-color会覆盖color所定义的字体颜色： */
+				
+				                -webkit-text-fill-color: transparent;
+					
+								
+								-webkit-text-stroke: 0.01rem #402d34;/*描边的像素，也就是粗细，这里指定是2像素的黑色边框*/
+				width: 1.406756rem;
+				height: 0.49054rem;
+				position: relative;
+				left: 50%;
+				transform: translateX(-50%);
+				margin-top: 0.102702rem;
+			}
+			
+			.new_pre_rule_box {
+				width: 100%;
+				min-height: 0.135135rem;
+				margin-bottom: 0.216216rem;
+			}
+			.new_pre_rule_box_title {
+				font-size: 0.135675rem;
+				color: #ffe400;
+				/*margin-bottom: 0.135135rem;*/
+			}
+			
+			.new_pre_rule_box_content {
+				font-size: 0.135675rem;
+				color: #dddddd;
+				line-height: 0.308108rem;
+				/*margin-bottom: 0.135135rem;*/
+				margin-top: 0.054054rem;
+			}
+			.new_pre_rule_box_content1{
+				font-size: 0.135675rem;
+				color: #dddddd;
+				line-height: 0.308108rem;
+				/*margin-bottom: 0.135135rem;*/
+				margin-top: 0.054054rem;
+				color: #f2cb14;
+			}
+			
+			@media only screen and (max-height:411px) and (max-width:823px) {
+				/*.rule_main_frame {
+					margin-top: 0.1rem;
+					width: 95%;
+					margin-left: 2.5%;
+				}*/
+			}
+			
+			@media only screen and (max-height:414px) and (max-width:736px) {
+				.myol {
+					line-height: 0.27405rem;
+				}
+			}
+			
+			@media only screen and (max-height:320px) {
+				.rule_main_frame {
+					margin-top: 0.1rem;
+					width: 100%;
+					margin-left: 0;
+				}
+				.myol {
+					line-height: 0.2445005rem;
+				}
+			}
+			
+			@keyframes animaDown {
+				from {
+					top: -300px;
+				}
+				to {
+					top: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all" class="frame">
+			<img src="./img/btn_close.png" class='new_close_btn' @click="closeThis" />
+			<div class="iner_frame">
+				<div class="rule_text_img">游戏规则</div>
+				<div class="new_pre_rule_box" v-for="preRules in ruleData">
+					<div class="new_pre_rule_box_title">{{preRules.title}}</div>
+					<div class="new_pre_rule_box_content" v-for="(preLi,index) in preRules.content">{{index+1}}.{{preLi}}</div>
+					<div class="new_pre_rule_box_content" v-if="preRules.specialTips!=undefined">{{preRules.content.length+1}}.{{preRules.specialTips}}</div>
+				</div>
+				<!--<div class="pre_rule_box" v-for="preRules in ruleData">
+					<div class="rule_title_sp">{{preRules.title}}</div>
+					<div class="rule_main_frame" id='main_frame'>
+						<ol id='rule_ol' class="myol">
+							<li v-for="preLi in preRules.content">{{preLi}}</li>
+						</ol>
+					</div>
+				</div>-->
+			</div>
+		</div>
+		<script src="https://i.zhuagewawa.com/js/flexable.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://i.zhuagewawa.com/js/jquery_3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://i.zhuagewawa.com/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var whole = new Vue({
+				el: '#all',
+				data: {
+					ruleData: [],
+					pusherRule: {
+						'title': '游戏玩法',
+						'content': ['开始游戏扣除{{房间的价格}}币，加1000分。玩家加分最高100万分', '60秒不射击自动下机，系统自动结算，125游戏分结算为1金币', '长按射击可高速连发。长按投币可快速投币。双击下键可切换不同武器', '结算时需保证分数位置画面清晰无遮挡，否则出现分数偏差由玩家自理']
+					},
+					sourlRule: {
+						'title': '收魂玩法',
+						'content': ['消灭6大妖怪后点击“收魂”可收集妖怪魂点。每收集1000魂点可获得一个妖怪。6大妖怪为：狂暴飞龙、千年南瓜精、巨石炎魔、幻影死神、修罗巨魔、骷髅暴君', '消灭妖怪时的倍率越高，收集到的魂点越多。收魂有成功概率。消灭怪物后修改倍率会100%收魂失败', '可在个人页面查看“妖怪任务”，完成任务兑换不同奖品，任务不定期更新']
+					},
+					specialRule: {
+						'title': '特别说明',
+						'content': ['警告！未满18周岁请勿进入游戏，任何行为视为成年人行为', '注意：超过100万分后投币只扣币不加分', '最佳游戏体验需要至少4M的带宽，如使用流量，1小时消耗约1.8G', '他人如未完成正常结算，请勿上机。否则将扣除一切非法所得', '游戏过程中有任何问题，请联系在线客服或客服QQ：3357558010'],
+						
+					},
+					isShowMachineCoed: false
+				},
+				created() {
+					console.log('yo ho ')
+					this.initRule();
+				},
+				methods: {
+					initRule() {
+						console.log(this.getQueryString('type'))
+						if(this.getQueryString('type') === '2') {
+							this.pusherRule.content[0]="开始游戏扣除"+this.getQueryString('price')+"币，加1000分。玩家加分最高100万分";
+							this.pusherRule.content[1]="60秒不射击自动下机，系统自动结算，125游戏分结算为1金币";
+								this.specialRule.specialTips='游戏备案号：新广出审[2017]1025号';
+							this.ruleData.push(this.pusherRule);
+							if(this.getQueryString('monster') === '1') {
+								this.ruleData.push(this.sourlRule);
+							}
+							this.ruleData.push(this.specialRule);
+						} else if(this.getQueryString('type') === '3') {
+							this.ruleData.push(this.specialRule);
+						} 
+					},
+					getQueryString(name) {
+						var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+						var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+						var r = window.location.search.substr(1).match(reg);
+						var q = window.location.pathname.substr(1).match(reg_rewrite);
+						if(r != null) { 
+							return unescape(r[2]);
+						} else if(q != null) {
+							return unescape(q[2]);
+						} else {
+							return null;
+						}
+					},
+					getOsVersion() {
+						var u = navigator.userAgent,
+							version = '';
+						if(u.indexOf('Mac OS X') > -1) {
+							//ios
+							var regStr_saf = /OS [\d._]*/gi;
+							var verinfo = u.match(regStr_saf);
+							version = 'ios';
+						} else if(u.indexOf('Android') > -1 ||
+							u.indexOf('Linux') > -1) {
+							//android
+							version = 'android';
+						} else if(u.indexOf('BB10') > -1) {
+							//黑莓bb10系统
+							version = 'bb';
+						} else if(u.indexOf('IEMobile')) {
+							//windows phone
+							version = 'winphone';
+						}
+						return version;
+					},
+					closeThis() {
+						var os = this.getOsVersion()
+						if(os != 'ios') {
+							window.android.close();
+						} else {
+							window.close();
+						}
+					},
+
+				}
+			});
+		</script>
+	</body>
+
+</html>
